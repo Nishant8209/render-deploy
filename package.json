@@ -6,9 +6,9 @@
   "scripts": {
     "clean": "rm -rf dist",
     "build": "npm run clean && npm run build:frontend && npm run build:backend",
-    "build:frontend": "cd frontend && npm install && npm run build && cd .. && mkdir -p dist/frontend && cp -r frontend/dist/* dist/frontend/",
-    "build:backend": "cd backend && npm install && npx tsc && cd .. && mkdir -p dist/backend && cp -r backend/dist/* dist/backend/",
-    "start": "node dist/backend/server.js"
+    "build:frontend": "cd frontend && npm install && npm run build && cd ../backend && mkdir -p dist/frontend && cp -r frontend/dist/* dist/frontend/",
+    "build:backend": "cd backend && npm install && npx tsc && mkdir -p dist/backend && cp -r backend/dist/* dist/backend/",
+    "start": "node backend/dist/backend/server.js"
   },
   "keywords": [],
   "author": "",
