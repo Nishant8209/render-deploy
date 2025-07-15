@@ -25,9 +25,7 @@ app.use(morgan('dev')); // Logging middleware
 app.use(cookieParser());
 // Routes
 app.use('/api', index_1.default);
-const buildPath = path_1.default.join(__dirname, '../frontend/build');
-app.use(express.static(buildPath));
-app.get('/{*any}', (req, res) => {
+app.get("*", (req, res) => {
     res.sendFile(path_1.default.join(__dirname, "frontend/build", "index.html"));
 });
 // Error handling middleware

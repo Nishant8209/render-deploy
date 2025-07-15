@@ -3,8 +3,12 @@
   "version": "1.0.0",
   "description": "Full stack application",
   "main": "index.js",
-  "scripts": {
-     "build": "cd frontend && npm install && npm run build && cd ../backend && npm install && npm run build",
+   "scripts": {
+    "clean": "if exist dist rmdir /s /q dist",
+    "build": "npm run clean && npm run build:frontend && npm run build:backend",
+    "build:frontend": "cd frontend && npm install && npm run build && cd .. && if not exist dist\\frontend mkdir dist\\frontend && (xcopy /E /I /Y frontend\\dist\\* dist\\frontend\\ 2>nul || xcopy /E /I /Y frontend\\build\\* dist\\frontend\\ 2>nul || echo Frontend build not found)",
+    "build:backend": "cd backend && npm install && npx tsc && cd .. && if not exist dist\\backend mkdir dist\\backend && (xcopy /E /I /Y backend\\dist\\* dist\\backend\\ 2>nul || xcopy /E /I /Y backend\\build\\* dist\\backend\\ 2>nul || echo Backend build not found)",
+    
     "start": "node dist/backend/server.js"
     
   },
