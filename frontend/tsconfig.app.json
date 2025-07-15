@@ -1,0 +1,45 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "skipLibCheck": true,
+
+    /* Bundler mode */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "isolatedModules": true,
+    "moduleDetection": "force",
+    "noEmit": true,
+    "jsx": "react-jsx",
+
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+   
+    "baseUrl": ".",
+    "paths": {
+      // root level
+      "@components/*":["src/components/*"],
+      "@pages/*":["src/pages/*"],
+      "@store/*":["src/store/*"],
+      "@routes/*":["src/routes/*"],
+     
+      // lib level
+      "@utils/*":["src/libs/utils/*"],
+      "@hooks/*":["src/libs/hooks/*"],
+
+       // Ui level
+      "@ui/atoms/*":["src/libs/ui/src/atoms/*"],
+      "@ui/molecules/*":["src/libs/ui/src/molecules/*"],
+      "@ui/organisms/*":["src/libs/ui/src/organisms/*"],
+      "@ui/templates/*":["src/libs/ui/src/templates/*"],
+      "@ui/assets/*":["src/libs/ui/assest/*"],
+      
+    }
+  },
+  "include": ["src"]
+}
