@@ -4,11 +4,14 @@
   "description": "Full stack application",
   "main": "index.js",
   "scripts": {
-    "clean": "rm -rf dist",
-    "build": "npm run clean && npm run build:frontend && npm run build:backend",
-    "build:frontend": "cd frontend && npm install && npm run build && cd ../backend && mkdir -p dist/frontend && cp -r frontend/dist/* dist/frontend/",
-    "build:backend": "cd backend && npm install && npx tsc && mkdir -p dist/backend && cp -r backend/dist/* dist/backend/",
-    "start": "node backend/dist/backend/server.js"
+     "clean": "rm -rf dist",
+  "build": "npm run clean && npm run build:frontend && npm run build:backend",
+
+  "build:frontend": "cd frontend && npm install && npm run build && cd .. && mkdir -p backend/dist/frontend && cp -r frontend/dist/* backend/dist/frontend/",
+
+  "build:backend": "cd backend && npm install && npx tsc",
+
+  "start": "node backend/dist/server.js"
   },
   "keywords": [],
   "author": "",
