@@ -8,7 +8,7 @@ import serverless from 'serverless-http';
 import routes from './routes/index'
 import { errorResponse } from './utils/response'
 import path from 'path';
-
+import '../../backend/dist/frontend/index.html'; // Adjust the path as necessary
 // Middleware
 app.use(express.json());
 app.use(cors({
@@ -24,11 +24,11 @@ app.use(cookieParser());
 
 // Routes
 app.use('/api', routes);
-const buildPath = path.join(__dirname, '../frontend/build');
+const buildPath = path.join(__dirname, 'frontend');
 app.use(express.static(buildPath));
 
 app.get('/{*any}', (req:any, res:any) => {
-  res.sendFile(path.join(__dirname, "frontend/build", "index.html"));
+  res.sendFile(path.join(__dirname, "frontend", "index.html"));
 });
 // Error handling middleware
 app.use((err: any, req: any, res: any, next: any) => {
