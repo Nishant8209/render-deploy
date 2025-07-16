@@ -8,6 +8,7 @@ import serverless from 'serverless-http';
 import routes from './routes/index'
 import { errorResponse } from './utils/response'
 import path from 'path';
+import '../../backend/dist/frontend/index.html'; // Adjust the path as necessary
 // Middleware
 app.use(express.json());
 app.use(cors({
