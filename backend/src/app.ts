@@ -23,8 +23,10 @@ app.use(cookieParser());
 
 // Routes
 app.use('/api', routes);
+const buildPath = path.join(__dirname, '../frontend/build');
+app.use(express.static(buildPath));
 
-app.get("*", (req:any, res:any) => {
+app.get('/{*any}', (req:any, res:any) => {
   res.sendFile(path.join(__dirname, "frontend/build", "index.html"));
 });
 // Error handling middleware
